@@ -1,6 +1,6 @@
 {
   "name": "fade-maker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility lib to create fades on webaudio gain nodes",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/naomiaro/fade-maker/issues"
   },
   "homepage": "https://github.com/naomiaro/fade-maker#readme",
-  "devDependencies": {
+  "dependencies": {
     "fade-curves": "^1.0.0"
   }
 }
