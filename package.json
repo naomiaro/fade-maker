@@ -1,6 +1,6 @@
 {
   "name": "fade-maker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility lib to create fades on webaudio gain nodes",
   "website": "http://naomiaro.github.io",
   "babel": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/naomiaro/fade-maker#readme",
   "dependencies": {
-    "fade-curves": "^1.0.1"
+    "fade-curves": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
@@ -40,5 +40,5 @@
   "scripts": {
     "compile": "babel main.js --out-file index.js",
     "prepublish": "npm run compile"
-}
+  }
 }
