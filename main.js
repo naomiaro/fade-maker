@@ -1,29 +1,22 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.FADEOUT = exports.FADEIN = exports.LOGARITHMIC = exports.EXPONENTIAL = exports.LINEAR = exports.SCURVE = undefined;
-exports.createFadeIn = createFadeIn;
-exports.createFadeOut = createFadeOut;
+import {sCurve, logarithmic} from 'fade-curves';
 
-var _fadeCurves = require('fade-curves');
+export const SCURVE = "sCurve";
+export const LINEAR = "linear";
+export const EXPONENTIAL = "exponential";
+export const LOGARITHMIC = "logarithmic";
 
-var SCURVE = exports.SCURVE = "sCurve";
-var LINEAR = exports.LINEAR = "linear";
-var EXPONENTIAL = exports.EXPONENTIAL = "exponential";
-var LOGARITHMIC = exports.LOGARITHMIC = "logarithmic";
-
-var FADEIN = exports.FADEIN = "FadeIn";
-var FADEOUT = exports.FADEOUT = "FadeOut";
+export const FADEIN = "FadeIn";
+export const FADEOUT = "FadeOut";
 
 function sCurveFadeIn(start, duration) {
-    var curve = (0, _fadeCurves.sCurve)(10000, 1);
+    var curve = sCurve(10000, 1);
     this.setValueCurveAtTime(curve, start, duration);
 }
 
 function sCurveFadeOut(start, duration) {
-    var curve = (0, _fadeCurves.sCurve)(10000, -1);
+    var curve = sCurve(10000, -1);
     this.setValueCurveAtTime(curve, start, duration);
 }
 
@@ -48,17 +41,18 @@ function exponentialFadeOut(start, duration) {
 }
 
 function logarithmicFadeIn(start, duration) {
-    var curve = (0, _fadeCurves.logarithmic)(10000, 10, 1);
+    var curve = logarithmic(10000, 10, 1);
     this.setValueCurveAtTime(curve, start, duration);
 }
 
 function logarithmicFadeOut(start, duration) {
-    var curve = (0, _fadeCurves.logarithmic)(10000, 10, -1);
+    var curve = logarithmic(10000, 10, -1);
     this.setValueCurveAtTime(curve, start, duration);
 }
 
-function createFadeIn(gain, shape, start, duration) {
-    switch (shape) {
+
+export function createFadeIn(gain, shape, start, duration) {
+    switch(shape) {
         case SCURVE:
             sCurveFadeIn.call(gain, start, duration);
             break;
@@ -76,8 +70,8 @@ function createFadeIn(gain, shape, start, duration) {
     }
 }
 
-function createFadeOut(gain, shape, start, duration) {
-    switch (shape) {
+export function createFadeOut(gain, shape, start, duration) {
+    switch(shape) {
         case SCURVE:
             sCurveFadeOut.call(gain, start, duration);
             break;
